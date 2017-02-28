@@ -5,7 +5,7 @@ def _read(x):
 	for line in x:
 		b += line
 	return b
-edef getint(x,u="I'm sorry, I didn't get that. Please try again.",y="",z=""):
+def getint(x,u="I'm sorry, I didn't get that. Please try again.",y="",z=""):
 	while True:
 		try:
 			b = int(input(x))
@@ -17,8 +17,7 @@ edef getint(x,u="I'm sorry, I didn't get that. Please try again.",y="",z=""):
 					return b
 				else:
 					print(u)
-			else:
-				return b
+			else:				return b
 def get(x,u="I'm sorry, I didn't get that. Please try again.",y=0,z=0,c=0):
 	while True:
 		try:
