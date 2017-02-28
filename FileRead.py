@@ -1,5 +1,4 @@
 import time
-import FileWrite
 def _read(x):
 	b = ""
 	for line in x:
