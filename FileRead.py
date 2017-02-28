@@ -37,8 +37,8 @@ _continue = "y"
 while _continue == "y":
         while True:
                 try:
-                        direct = input("Input directory:")
-                        fn = open(direct,"r")
+                        direct = input("Input directory: ")
+						fn = open(direct)
                 except OSError:
                         print("\nFile directory not found! Try again.\n")
                 except:
