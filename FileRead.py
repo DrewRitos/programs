@@ -1,10 +1,11 @@
 import time
+import os 
 def _read(x):
 	b = ""
 	for line in x:
 		b += line
 	return b
-def getint(x,u="I'm sorry, I didn't get that. Please try again.",y="",z=""):
+edef getint(x,u="I'm sorry, I didn't get that. Please try again.",y="",z=""):
 	while True:
 		try:
 			b = int(input(x))
@@ -14,7 +15,7 @@ def getint(x,u="I'm sorry, I didn't get that. Please try again.",y="",z=""):
 			if y != "":
 				if y <= b <= z:
 					return b
-				else:
+l				else:
 					print(u)
 			else:
 				return b
@@ -24,7 +25,7 @@ def get(x,u="I'm sorry, I didn't get that. Please try again.",y=0,z=0,c=0):
 			b = input(x)
 		except:
 			print("I'm sorry, I didn't get that. Please try again.")
-		else:
+i		else:
 			if y != 0:
 				if b == y or z or c:
 					return b
@@ -34,10 +35,10 @@ def get(x,u="I'm sorry, I didn't get that. Please try again.",y=0,z=0,c=0):
 				return b
 _continue = "y"
 while _continue == "y":
-        while True:
+f        while True:
                 try:
-                        direct = input("C:\\")
-                        fn = open("C:\\"+direct,"r")
+                        direct = input("Input directory:")
+                        fn = open(direct,"r")
                 except OSError:
                         print("\nFile directory not found! Try again.\n")
                 except:
@@ -48,18 +49,21 @@ while _continue == "y":
         print("\n"+_read(fn))
         time.sleep(1.5)
         print("\nWould you like to edit this file?")
-        _edit = input("y/n: ")
+        _edit = get("y/n: ")
         fn.close
         if _edit == "y":
+			pres = get("(1) Insert a line\n(2) Delete a line\n(3) Delete the file\ny/n: ",1,3)
+			if pres == 1:
                 line_edit = getint("\nWhich line would you like to edit (input a number 0+): ")
                 file_edit = get("What would you like to insert in that line (input a string): ")
-                filer = open("C:\\"+direct)
-                tempfile = open("C:\\"+direct+".temp","w")
+                filer = open(direct)
+                tempfile = open(direct+".temp","w")
                 for line in filer:
                         tempfile.write(line)
-                filew = open("C:\\"+direct,"w")
-                tempfile.close()
-                tempfile = open("C:\\"+direct+".temp")
+				tempfile.close()
+				filer.close()
+                filew = open(direct,"w")
+                tempfile = open(direct+".temp")
                 for line in tempfile:
                     if line_edit == 0:
                         filew.write(file_edit+"\n")
@@ -67,8 +71,28 @@ while _continue == "y":
                     else:
                         line_edit -= 1
                         filew.write(line)
-                tempfile.close()
+                os.remove(tempfile)
                 filew.close()
+			elif pres == 2:
+				line_edit = getint("\nWhich line would you like to delete (input a number 0+): ")
+				filer = open(direct)
+				tempfile = open(direct+".temp","w")
+				for line in filer:
+					tempfile.write(line)
+				filer.close()
+				tempfile.close()
+				tempfile = open(direct+".temp")
+				filew = open(direct,"w")
+				for line in tempfilre:
+					if line_edit == 0:
+						pass
+					else:
+						filew.write(line)
+				os.remove(tempfile)
+				filew.close()
+			elif pres == 3:
+				
+				
         print()
 
                 
