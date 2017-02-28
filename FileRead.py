@@ -15,7 +15,7 @@ edef getint(x,u="I'm sorry, I didn't get that. Please try again.",y="",z=""):
 			if y != "":
 				if y <= b <= z:
 					return b
-l				else:
+				else:
 					print(u)
 			else:
 				return b
@@ -25,7 +25,7 @@ def get(x,u="I'm sorry, I didn't get that. Please try again.",y=0,z=0,c=0):
 			b = input(x)
 		except:
 			print("I'm sorry, I didn't get that. Please try again.")
-i		else:
+		else:
 			if y != 0:
 				if b == y or z or c:
 					return b
@@ -35,7 +35,7 @@ i		else:
 				return b
 _continue = "y"
 while _continue == "y":
-f        while True:
+        while True:
                 try:
                         direct = input("Input directory:")
                         fn = open(direct,"r")
